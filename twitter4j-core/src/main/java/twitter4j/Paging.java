@@ -17,6 +17,7 @@
 package twitter4j;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,7 +65,7 @@ public final class Paging implements java.io.Serializable {
     }
 
 
-    private static final List<HttpParameter> NULL_PARAMETER_LIST = new ArrayList<HttpParameter>(0);
+    private static final List<HttpParameter> NULL_PARAMETER_LIST = Collections.synchronizedList(new ArrayList<HttpParameter>(0));
 
     /**
      * Converts the pagination parameters into a List of PostParameter.<br>

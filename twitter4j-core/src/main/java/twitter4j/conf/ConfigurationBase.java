@@ -24,6 +24,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.net.Proxy;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -967,7 +968,7 @@ class ConfigurationBase implements Configuration, java.io.Serializable {
                 '}';
     }
 
-    private static final List<ConfigurationBase> instances = new ArrayList<ConfigurationBase>();
+    private static final List<ConfigurationBase> instances = Collections.synchronizedList(new ArrayList<ConfigurationBase>());
 
     private static void cacheInstance(ConfigurationBase conf) {
         if (!instances.contains(conf)) {

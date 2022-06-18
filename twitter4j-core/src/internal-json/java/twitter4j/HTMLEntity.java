@@ -17,8 +17,8 @@
 package twitter4j;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 final class HTMLEntity {
 
@@ -176,8 +176,8 @@ final class HTMLEntity {
         return unescaped.toString();
     }
 
-    private static final Map<String, String> entityEscapeMap = new HashMap<String, String>();
-    private static final Map<String, String> escapeEntityMap = new HashMap<String, String>();
+    private static final Map<String, String> entityEscapeMap = new ConcurrentHashMap<String, String>();
+    private static final Map<String, String> escapeEntityMap = new ConcurrentHashMap<String, String>();
 
     static {
         String[][] entities =

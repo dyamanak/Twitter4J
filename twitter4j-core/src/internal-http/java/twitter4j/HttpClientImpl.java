@@ -20,9 +20,9 @@ import twitter4j.conf.ConfigurationContext;
 
 import java.io.*;
 import java.net.*;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com
@@ -55,7 +55,7 @@ class HttpClientImpl extends HttpClientBase implements HttpResponseCode, java.io
         super(conf);
     }
 
-    private static final Map<HttpClientConfiguration, HttpClient> instanceMap = new HashMap<HttpClientConfiguration, HttpClient>(1);
+    private static final Map<HttpClientConfiguration, HttpClient> instanceMap = new ConcurrentHashMap<HttpClientConfiguration, HttpClient>(1);
 
     public static HttpClient getInstance(HttpClientConfiguration conf) {
         HttpClient client = instanceMap.get(conf);
